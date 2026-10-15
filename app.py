@@ -60,7 +60,7 @@ if st.button("🚀 Run AI Dual-Engine Analysis", type="primary"):
             
             if response.status_code == 200:
                 ai_output = res_data['candidates'][0]['content']['parts'][0]['text']
-                st.success("Analysis Complete! (Powered by gemini-3.8-flash)")
+                st.success("Analysis Complete! (Powered by gemini-2.5-flash)")
                 st.markdown("### 🤖 AI Dual-Engine Strategy Report")
                 st.write(ai_output)
             else:
