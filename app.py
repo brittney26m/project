@@ -31,7 +31,7 @@ with col2:
 st.markdown("---")
 
 if st.button("🚀 Run AI Dual-Engine Analysis", type="primary"):
-    api_key = os.getenv("GEMINI_API_KEY") or "AQ.Ab8RN6K3H6HxEcp0Or0WtsONkjyyWNVUx1KRajHB1sV939DeuA"
+    api_key = st.secrets.get("GEMINI_API_KEY", os.getenv("GEMINI_API_KEY"))
     headers = {
         "Content-Type": "application/json",
         "x-goog-api-key": api_key.strip()
@@ -40,8 +40,7 @@ if st.button("🚀 Run AI Dual-Engine Analysis", type="primary"):
     with st.spinner("Analyzing risk signals & generating retention strategy..."):
         try:
             # 直接使用官方推荐的最新模型 gemini-3.8-flash
-            url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent"
-            
+            url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
             prompt_text = f"""
             Account: {customer}
             Internal Logs: 65% usage drop, 18 days inactive.
