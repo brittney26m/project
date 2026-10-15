@@ -40,7 +40,7 @@ if st.button("🚀 Run AI Dual-Engine Analysis", type="primary"):
     with st.spinner("Analyzing risk signals & generating retention strategy..."):
         try:
             # 直接使用官方推荐的最新模型 gemini-3.8-flash
-            url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
+            url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent"
             prompt_text = f"""
             Account: {customer}
             Internal Logs: 65% usage drop, 18 days inactive.
